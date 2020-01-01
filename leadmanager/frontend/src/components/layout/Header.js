@@ -61,7 +61,7 @@ export class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a className="navbar-brand" href="#">
-              User Manager
+              Qhub
             </a>
           </div>
           {isAuthenticated ? authLinks : guestLinks}
