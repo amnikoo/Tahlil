@@ -1,0 +1,104 @@
+body { padding-top: 2rem; background-color: antiquewhite;}
+@media screen and (max-width: 768px) {
+    body { padding-top:0px; }
+}
+
+
+
+
+@media(min-width:768px){
+
+  .navbar {
+    height:3rem;
+    min-height: 4rem;
+  }
+
+.container-1{
+  display: flex;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+.container-2{
+  justify-content: space-between;
+}
+
+comment-section{
+  justify-content: space-between;
+}
+
+
+}
+
+@media(max-width:768px){
+  .container-1{
+    padding-top: 60px;
+  }
+}
+
+.container-1 div{
+  padding:10px;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.container-2 div{
+  margin: 0px;
+  flex-direction: row;
+}
+
+.container-3 div{
+  margin: 20px;
+}
+
+
+comment-section div{
+  margin: 0px;
+  flex-direction: row;
+}
+.post-in{
+  display: flex;
+  flex:2;
+}
+
+box-parent{
+  margin: 10px;
+}
+
+.box-2 div{
+  
+  justify-content: flex-end;
+}
+
+.box-1 {
+  flex:2;
+}
+
+.box-2 {
+  flex:1;
+  border:1px #ccc solid;
+}
+
+.box-2-1 {
+  margin-top: 10px;
+  border:1px #ccc solid;
+  background-color: darkgreen;
+}
+
+.votes-section{
+  border:1px #ccc solid;
+  background-color:rebeccapurple;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-1-2{
+  border:1px #ccc solid;
+  background-color:rebeccapurple;
+}
+
+
+.card-text{
+  max-lines: 3;
+}
+

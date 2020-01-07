@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
+// import logo from "./postq.png";
+
+// console.log(logo)
 
 export class Header extends Component {
   static PropTypes = {
@@ -45,8 +48,14 @@ export class Header extends Component {
       </ul>
     );
 
+    const navStyle = {
+      backgroundColor: "#000",
+      height:"3rem",
+      minHeight: "4rem",
+    };
+
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
+      <nav className="navbar navbar-expand-sm navbar-light bg-light" style={navStyle}>
         <div className="container">
           <button
             className="navbar-toggler"
@@ -61,7 +70,7 @@ export class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a className="navbar-brand" href="#">
-              Qhub
+              {/* <img src={logo} alt="Logo"/> */}
             </a>
           </div>
           {isAuthenticated ? authLinks : guestLinks}

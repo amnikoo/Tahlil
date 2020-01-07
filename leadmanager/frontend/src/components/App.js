@@ -20,6 +20,8 @@ import PrivateRoute from "./common/PrivateRoute";
 import { Provider } from "react-redux";
 import store from "../store";
 import { loadUser } from "../actions/auth";
+// import { addThread } from "../actions/threads";
+
 
 // Alert Options
 const alertOptions = {
@@ -45,6 +47,7 @@ class App extends Component {
                   <PrivateRoute exact path="/" component={Dashboard} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
+                  {/* <Route exact path="/makeThread" component={addThread} /> */}
                 </Switch>
               </div>
             </Fragment>
