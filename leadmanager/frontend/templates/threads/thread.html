@@ -179,31 +179,47 @@ box-parent{
                 <a href="#">
                     <i class="fas fa-angle-up"></i>
                 </a>
-              <h5>23</h5>
+              <h5>{{ thread.votes }}</h5>
                 <a href="#">
                     <i class="fas fa-angle-down"></i>
                  </ a>
             </div>
           <div class="card box-1-2">
             <div class="card-body">
-              <a class="card-user">Posted by u/amin 4 hours ago</a>
+              <a class="card-user">Posted by u/{{ thread.user }} {{ thread.creadted_date | timesince }}</a>
               <span class="badge badge-pill badge-dark">Django</span>
-              <h4 class="card-title">How do I pass parameters via url in django?</h4>
+              <h4 class="card-title">{{ thread.title }}</h4>
               <p class="card-text">
-                
-                        I am trying to pass a parameter to my view, but I keep getting this error:
-                        Reverse for 'pay_summary' with arguments '(False,)' and keyword arguments '{}' not found. 1 pattern(s) tried: ['pay/summary/$']
-                        /pay/how is the current view that I'm at. (that is the current template that that view is returning).
-    
-                        EDIT
-                        I want the view should accept a POST request, not GET.
-                      </p>
-              <a href="#" class="card-link">Continue...</a>
+                {{ thread.text }}
+              </p>
+              <a href="#" class="card-link">reply</a>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="card card-body mt-4 mb-4">
+        <h2>Reply to this thread</h2>
+        <form action="{% url 'thread' thread.id %}" method="POST">
+          {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+            <input type="hidden" name="thread_id" value="{{ thread.id }}">
+            <div class="form-group">
+                <textarea
+                    class="form-control"
+                    type="text"
+                    name="text"
+                    value="{{ reply.text }}"
+                    placeholder="Text"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Reply</button>
+            </div>
+        </form>
+    </div>
       
+      {% if replies %}
+        {% for reply in replies %}
       <div class="box-parent">
         <div class="container-2">
           <div class="post-in">
@@ -211,64 +227,30 @@ box-parent{
                 <a href="#">
                     <i class="fas fa-angle-up"></i>
                 </a>
-              <h5>23</h5>
+              <h5>{{ reply.votes }}</h5>
                 <a href="#">
                     <i class="fas fa-angle-down"></i>
                  </ a>
             </div>
           <div class="card box-1-2">
             <div class="card-body">
-              <a class="card-user">Posted by u/amin 4 hours ago</a>
+              <a class="card-user">Posted by u/{{ reply.user }} {{ reply.creadted_date | timesince }}</a>
               <span class="badge badge-pill badge-dark">Django</span>
-              <h4 class="card-title">How do I pass parameters via url in django?</h4>
+              
               <p class="card-text">
-                
-                        I am trying to pass a parameter to my view, but I keep getting this error:
-                        Reverse for 'pay_summary' with arguments '(False,)' and keyword arguments '{}' not found. 1 pattern(s) tried: ['pay/summary/$']
-                        /pay/how is the current view that I'm at. (that is the current template that that view is returning).
-    
-                        EDIT
-                        I want the view should accept a POST request, not GET.
-                      </p>
-              <a href="#" class="card-link">Continue...</a>
+                {{ reply.text }}
+              </p>
+              <a href="#" class="card-link">reply</a>
             </div>
           
-        </div>
-        </div>
-      </div>
-      <div class="container-2">
-        <div class="post-in">
-          <div class="votes-section">
-              <a href="#">
-                  <i class="fas fa-angle-up"></i>
-              </a>
-            <h5>23</h5>
-              <a href="#">
-                  <i class="fas fa-angle-down"></i>
-               </ a>
+            </div>
           </div>
-        <div class="card box-1-2">
-          <div class="card-body">
-            <a class="card-user">Posted by u/amin 4 hours ago</a>
-            <span class="badge badge-pill badge-dark">Django</span>
-            <h4 class="card-title">How do I pass parameters via url in django?</h4>
-            <p class="card-text">
-              
-                      I am trying to pass a parameter to my view, but I keep getting this error:
-                      Reverse for 'pay_summary' with arguments '(False,)' and keyword arguments '{}' not found. 1 pattern(s) tried: ['pay/summary/$']
-                      /pay/how is the current view that I'm at. (that is the current template that that view is returning).
-    
-                      EDIT
-                      I want the view should accept a POST request, not GET.
-                    </p>
-            <a href="#" class="card-link">Continue...</a>
-          </div>
-        
+        </div>
       </div>
-      </div>
+
+      {% endfor %}
+      {% endif %}
     </div>
-      </div>
-      </div>
       
       <div class="box-2">
         <div class="container-3">
@@ -296,8 +278,7 @@ box-parent{
           
         </ul>
     </nav>
-  <h1>thread</h1>
-
+ 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
