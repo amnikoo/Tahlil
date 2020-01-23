@@ -11,7 +11,8 @@ import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
 import Header from "./layout/Header";
-import Dashboard from "./users/Dashboard";
+import { default as usersDashboard } from "./users/Dashboard";
+import { default as threadsDashboard } from "./threads/Dashboard";
 import Alerts from "./layout/Alerts";
 import Login from "./accounts/Login";
 import Register from "./accounts/Register";
@@ -20,8 +21,6 @@ import PrivateRoute from "./common/PrivateRoute";
 import { Provider } from "react-redux";
 import store from "../store";
 import { loadUser } from "../actions/auth";
-// import { addThread } from "../actions/threads";
-
 
 // Alert Options
 const alertOptions = {
@@ -44,10 +43,14 @@ class App extends Component {
               <Alerts />
               <div className="container">
                 <Switch>
-                  <PrivateRoute exact path="/" component={Dashboard} />
+                  <PrivateRoute exact path="/" component={usersDashboard} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
-                  {/* <Route exact path="/makeThread" component={addThread} /> */}
+                  <Route
+                    exact
+                    path="/makeThread"
+                    component={threadsDashboard}
+                  />
                 </Switch>
               </div>
             </Fragment>

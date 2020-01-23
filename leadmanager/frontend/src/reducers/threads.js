@@ -1,17 +1,17 @@
-import { ADD_USER } from "../actions/types.js";
+import { ADD_THREAD } from "../actions/types.js";
 
 const initialState = {
-    threads: []
+  threads: []
 };
 
 export default function(state = initialState, action) {
-    switch (action.type) {
-        case ADD_THREAD:
-            return {
-                ...state,
-                users: [...state.threads, action.payload]
-            }
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case ADD_THREAD:
+      return {
+        ...state,
+        threads: [...state.threads, action.payload]
+      };
+    default:
+      return state;
+  }
 }

@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'threads.apps.ThreadsConfig',
-    'replies.apps.RepliesConfig',
+    'threads',
+    'replies',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'qhubdb',
+        'NAME': 'tahlil',
         'USER': 'postgres',
         'PASSWORD': 'iust1398',
         'HOST': 'localhost'

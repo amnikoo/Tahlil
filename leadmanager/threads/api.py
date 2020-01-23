@@ -1,18 +1,18 @@
-from users.models import Person
+from threads.models import Threads
 from rest_framework import viewsets, permissions
-from .serializers import UserSerializer
+from .serializers import ThreadsSerializer
 
-# User Viewset
+# Threads Viewset
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class ThreadsViewSet(viewsets.ModelViewSet):
     permission_classes = [
         permissions.IsAuthenticated
     ]
-    serializer_class = UserSerializer
+    serializer_class = ThreadsSerializer
 
     def get_queryset(self):
-        return self.request.user.persons.all()
+        return self.request.user.quests.all()
     
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

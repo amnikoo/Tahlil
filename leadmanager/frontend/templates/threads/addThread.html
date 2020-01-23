@@ -87,7 +87,7 @@
       <h2>Make a Thread</h2>
       <form action="{% url 'threads' %}" method="POST">
         {% csrf_token %}
-          <input type="hidden" name="user_id" value="{{ user.id }}">
+          <input type="hidden" name="user_id" value="{{ thread.user.id }}">
           <div class="form-group">
               <input
                   class="form-control"

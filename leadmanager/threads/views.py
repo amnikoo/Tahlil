@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Threads, User
+from .models import Threads
+from django.contrib.auth.models import User
 from replies.models import Replies
 
 def index(request):
@@ -9,6 +10,7 @@ def index(request):
         title = request.POST['title']
         text = request.POST['text']
         user_id = request.POST['user_id']
+        
 
         user = User.objects.get(id=user_id)
         

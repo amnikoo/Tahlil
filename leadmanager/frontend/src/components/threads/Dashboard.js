@@ -1,4 +1,4 @@
-import React, { Fragment } from "./node_modules/react";
+import React, { Fragment } from "react";
 import Form from "./Form";
 
 export default function Dashboard() {

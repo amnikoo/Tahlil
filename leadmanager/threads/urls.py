@@ -1,3 +1,13 @@
+from rest_framework import routers
+from .api import ThreadsViewSet
+
+router = routers.DefaultRouter()
+router.register('api/threads', ThreadsViewSet, 'threads')
+
+urlpatterns = router.urls
+
+
+'''
 from django.urls import path
 from . import views
 
@@ -8,3 +18,4 @@ urlpatterns = [
     path('search', views.search, name='search'),
     path('addThread', views.addThread, name='addThread'),
 ]
+'''
