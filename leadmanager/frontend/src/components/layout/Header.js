@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
-import logo from "./qhub.png";
+//import logo from "./qhub.png";
 
-console.log(logo);
+//console.log(logo);
+//<img src="../../../templates/frontend/qhub.png" alt="Logo" />
+//const logo = require("./postq.png");
 
 export class Header extends Component {
-  static PropTypes = {
+  static propTypes = {
     auth: PropTypes.object.isRequired,
     logout: PropTypes.func.isRequired
   };
@@ -18,6 +20,11 @@ export class Header extends Component {
 
     const authLinks = (
       <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li className="nav-item">
+          <Link to="/makeThread" className="nav-link">
+            Make Thread
+          </Link>
+        </li>
         <span className="navbar_text mr-3">
           <strong>{user ? `Welcome ${user.username}` : ""}</strong>
         </span>
@@ -72,9 +79,10 @@ export class Header extends Component {
             <span className="navbar-toggler-icon"> </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a className="navbar-brand" href="#">
-              <img src={logo} alt="Logo" />
-            </a>
+            <a
+              className="navbar-brand"
+              href="../../../templates/frontend/qhub.png"
+            ></a>
           </div>
           {isAuthenticated ? authLinks : guestLinks}
         </div>

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createMessage, returnErrors } from "./messages";
 import { tokenConfig } from "./auth";
-
 import { GET_USERS, DELETE_USER, ADD_USER } from "./types";
 
 // GET USERS

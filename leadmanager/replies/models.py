@@ -6,7 +6,7 @@ from threads.models import Threads
 class Replies(models.Model):
     reply_to = models.ForeignKey(
         Threads, related_name="replies_to",
-        on_delete=models.DO_NOTHING)
+        on_delete=models.CASCADE, null=True)
     owner = models.ForeignKey(
         User, related_name="replies",
         on_delete=models.DO_NOTHING, null=True)

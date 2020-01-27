@@ -10,7 +10,7 @@ export class Form extends Component {
     message: ""
   };
 
-  static PropTypes = {
+  static propTypes = {
     addUser: PropTypes.func.isRequired
   };
 

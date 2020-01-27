@@ -13,6 +13,9 @@ import AlertTemplate from "react-alert-template-basic";
 import Header from "./layout/Header";
 import { default as usersDashboard } from "./users/Dashboard";
 import { default as threadsDashboard } from "./threads/Dashboard";
+import Threads from "./threads/Threads";
+import Replies from "./threads/Replies";
+import Reply from "./threads/Reply";
 import Alerts from "./layout/Alerts";
 import Login from "./accounts/Login";
 import Register from "./accounts/Register";
@@ -43,7 +46,7 @@ class App extends Component {
               <Alerts />
               <div className="container">
                 <Switch>
-                  <PrivateRoute exact path="/" component={usersDashboard} />
+                  <PrivateRoute exact path="/" component={Threads} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
                   <Route
@@ -51,6 +54,9 @@ class App extends Component {
                     path="/makeThread"
                     component={threadsDashboard}
                   />
+                  <Route exact path="/reply" component={Reply} />
+                  <Route exact path={"/viewReplies"} component={Replies} />
+                  <Route exact path="/makeUser" component={usersDashboard} />
                 </Switch>
               </div>
             </Fragment>

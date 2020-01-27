@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addThread } from "../../actions/threads";
+import { Redirect } from "react-router-dom";
 
 export class Form extends Component {
   state = {
     title: "",
-    text: ""
+    text: "",
+    redirect: false
   };
 
   static propTypes = {
@@ -23,12 +25,16 @@ export class Form extends Component {
     this.props.addThread(thread);
     this.setState({
       title: "",
-      text: ""
+      text: "",
+      redirect: true
     });
   };
 
   render() {
-    const { title, text } = this.state;
+    const { title, text, redirect } = this.state;
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="card card-body mt-4 mb-4">
         <h2>Make a Thread</h2>
